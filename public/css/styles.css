@@ -1,0 +1,14 @@
+@layer base {
+  body {
+    @apply font-noto bg-bg-page text-text-main;
+  }
+
+  .dark body {
+    @apply font-noto bg-dark-bg-page text-dark-text-main;
+  }
+  @layer utilities {
+    .sec {
+      @apply text-[#7a7a7a] text-sm;
+    }
+  }
+}

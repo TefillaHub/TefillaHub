@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="app.js"></script>
+    <script src="https://www.hebcal.com/etc/omer.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./public/css/output.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&display=swap" rel="stylesheet" />
+    <title>TefillaHub</title>
+  </head>
+  <body class="bg-bg-page">
+    <section class="bg-gradient-to-r from-primary to-accent text-white w-full p-5 text-center rounded-b-3xl shadow-md">
+      <h1 class="text-center font-extralight text-3xl">YidKit</h1>
+
+      <div class="mt-6">
+        <div class="relative flex items-center">
+          <div class="flex-grow border-t border-white"></div>
+          <span class="mx-4 text-lg font-semibold">Shabbos</span>
+          <div class="flex-grow border-t border-white"></div>
+        </div>
+        <div class="flex justify-center gap-6 mt-2">
+          <div class="flex flex-col items-center">
+            <svg
+              id="candle-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 101 101"
+              class="w-8 h-8 text-white"
+              fill="currentColor"
+            >
+              <path
+                d="M88,81.93A1.5,1.5,0,0,0,86.64,81H70.91a1.48,1.48,0,0,0,.09-.5V44.22a1.5,1.5,0,0,0-1.18-1.47L52,38.9V30.34a10,10,0,0,0,8.41-9.82c0-5-8-17.44-8.92-18.84a1.56,1.56,0,0,0-2.51,0c-.91,1.4-8.92,13.85-8.92,18.84A10.06,10.06,0,0,0,49,30.42v7.83L31.82,34.53A1.5,1.5,0,0,0,30,36V80.5a1.48,1.48,0,0,0,.09.5H14.36a1.5,1.5,0,0,0-1.06,2.56l6.83,6.83A12.25,12.25,0,0,0,28.84,94H72.16a12.25,12.25,0,0,0,8.72-3.61l6.83-6.83A1.5,1.5,0,0,0,88,81.93Zm-45-61.41c0-2.71,4-10.07,7.18-15.22,3.18,5.15,7.18,12.51,7.18,15.22A7,7,0,0,1,52,27.28V19.5a1.5,1.5,0,0,0-3,0v7.89A7,7,0,0,1,43.05,20.52ZM33,80.5V37.86l7,1.52s0,.08,0,.13v13a1.5,1.5,0,0,0,3,0V40l25,5.41V80.5a1.48,1.48,0,0,0,.09.5H32.91A1.48,1.48,0,0,0,33,80.5Zm45.75,7.77A9.26,9.26,0,0,1,72.16,91H28.84a9.26,9.26,0,0,1-6.59-2.73L18,84H83Z"
+              ></path>
+              <path d="M41.5,60A1.5,1.5,0,0,0,40,61.5v10a1.5,1.5,0,0,0,3,0v-10A1.5,1.5,0,0,0,41.5,60Z"></path>
+            </svg>
+            <p class="text-sm">Candles</p>
+            <p id="candle-lighting-time">Loading...</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <svg
+              id="havdallah-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 120 120"
+              class="w-8 h-8 text-white"
+              fill="currentColor"
+            >
+              <path
+                d="M96.29,53.41A12.52,12.52,0,0,0,86.6,41.66c0-.1,0-.19,0-.28V22.64A3.59,3.59,0,0,0,83,19.05H76.23a3.6,3.6,0,0,0-3.6,3.59V41.38c0,.09,0,.18,0,.28A12.53,12.53,0,0,0,63,53.85V99.67a3.86,3.86,0,0,0,3.86,3.86H92.44a3.87,3.87,0,0,0,3.87-3.86V53.41ZM76.63,23.05h6v3.7h-6Zm6,7.7V41h-6V30.75Zm9.68,68.78H67V53.85a8.54,8.54,0,0,1,8.52-8.53h8.3a8.54,8.54,0,0,1,8.51,8.09H76.75V93.86H92.31Zm0-42.12V89.86H80.75V57.41Z"
+              ></path>
+              <path
+                d="M40.89,83.5a15,15,0,0,0,13-14.86V56.47h-30V68.64a15,15,0,0,0,13,14.86v15s0,0,0,0l-10.52,2.66A.91.91,0,0,0,26.6,103H51.19a.91.91,0,0,0,.22-1.79L40.89,98.58V83.5Zm-13-14.86V60.47h22v8.17a11,11,0,0,1-22,0Z"
+              ></path>
+            </svg>
+            <p class="text-sm">Havdallah</p>
+            <p id="havdalah-time">Loading...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Removed the Hebrew date rendering logic
+        // document.getElementById('hebrew-date').textContent = hebcalDate;
+
+        const omerCount = getOmer(new Date());
+        document.getElementById('omer-count').textContent = `Omer ${omerCount}`;
+
+        const shabbosDate = new Date();
+        shabbosDate.setDate(shabbosDate.getDate() + (6 - shabbosDate.getDay()));
+        document.getElementById('shabbos-date').textContent = `${shabbosDate.getMonth() + 1}/${shabbosDate.getDate()}`;
+
+        // Replace with actual candle lighting and Havdalah times for your location
+        document.getElementById('candle-lighting-time').textContent = '6:59 pm';
+        document.getElementById('havdalah-time').textContent = '7:57 pm';
+      });
+    </script>
+    <!-- Main Content -->
+    <main class="max-w-screen-lg mx-auto p-6 grid gap-6 md:grid-cols-3">
+      <!-- Card 1 -->
+      <div class="bg-white shadow-md rounded-xl p-4">
+        <h2 class="text-xl font-semibold mb-2">Tefilla Times</h2>
+        <p class="text-sm text-gray-600">View upcoming tefillot and zmanim</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="bg-white shadow-md rounded-xl p-4">
+        <h2 class="text-xl font-semibold mb-2">Halacha of the Day</h2>
+        <p class="text-sm text-gray-600">Get a daily dose of halacha with sources</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="bg-white shadow-md rounded-xl p-4">
+        <h2 class="text-xl font-semibold mb-2">My Tefillot</h2>
+        <p class="text-sm text-gray-600">Track, bookmark, and organize tefillot</p>
+      </div>
+    </main>
+  </body>
+</html>
