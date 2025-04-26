@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TefillaHub</title>
+    <script src="app.js" defer></script>
+    <script src="https://www.hebcal.com/etc/omer.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./public/css/output.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-bg-page text-text-main font-sans">
+    <section class="bg-gradient-to-r from-primary to-accent text-white w-full p-5 text-center rounded-b-3xl shadow-md">
+      <h1 class="text-center font-extralight text-3xl">TefillaHub</h1>
+
+      <div class="mt-4">
+        <div class="flex items-center justify-center">
+          <div class="border-t border-white w-full max-w-sm"></div>
+        </div>
+        <a href="index.html" class="text-gray-200 inline-flex items-center mt-4 hover:underline">← Back</a>
+      </div>
+    </section>
+
+    <main>
+      <!-- Hebcal Section -->
+      <section class="py-6 px-4 sm:px-8 max-w-4xl mx-auto">
+        <div class="border-2 border-primary rounded-lg overflow-hidden p-4 bg-surface shadow">
+          <div id="hebcal-shabbat" class="text-sm leading-relaxed"></div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Load Hebcal
+      fetch('https://www.hebcal.com/shabbat?cfg=i2&geonameid=993800&ue=off&M=on&lg=s&tgt=_top') // Updated geonameid for Johannesburg
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById('hebcal-shabbat').innerHTML = data;
+        });
+    </script>
+  </body>
+</html>

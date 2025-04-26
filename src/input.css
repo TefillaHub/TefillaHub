@@ -3,26 +3,158 @@
 @tailwind utilities;
 
 @layer components {
+  /* Reset + Mobile-First Base */
   button,
   input,
   textarea {
     @apply outline-0;
   }
+
   #links .active {
-    @apply text-gray-200;
+    @apply text-primary;
   }
+
   ::-webkit-scrollbar-thumb {
-    @apply bg-slate-900;
-  }
-  ::-webkit-scrollbar-thumb {
+    @apply bg-primary;
     border-radius: 15px;
-    border: 1px solid rgb(75 85 99);
+    border: 1px solid rgb(99 102 241); /* indigo-500 */
   }
+
   ::-webkit-scrollbar {
     background-color: transparent;
     width: 8px;
   }
+
   [lang='he'] {
     @apply font-hebrew;
+  }
+
+  /* FullCalendar Styles - Mobile First */
+  .fc-event {
+    @apply block text-white text-sm leading-tight rounded border border-primary bg-primary my-0.5 mx-0.5 pt-0 px-0.5;
+  }
+
+  .fc-time {
+    @apply font-bold;
+  }
+
+  .fc-event a,
+  .fc-event a:hover,
+  .fc-event a:focus {
+    @apply text-white;
+  }
+
+  .fc-event.hebdate,
+  .fc-event.omer {
+    @apply bg-white border-white text-gray-500;
+  }
+
+  .fc-event.dafyomi {
+    @apply bg-white border-white text-indigo-500;
+  }
+
+  .fc-event.dafyomi a:hover,
+  .fc-event.dafyomi a:focus {
+    @apply text-indigo-800;
+  }
+
+  .fc-event.mishnayomi {
+    @apply bg-white border-white text-green-700;
+  }
+
+  .fc-event.mishnayomi a:hover,
+  .fc-event.mishnayomi a:focus {
+    @apply text-green-800;
+  }
+
+  .fc-event.holiday {
+    @apply bg-accent border-accent text-white;
+  }
+
+  .fc-event.fast {
+    @apply bg-orange-500 border-orange-500 text-white;
+  }
+
+  .fc-event.timed {
+    @apply bg-white border-white text-gray-800;
+  }
+
+  .fc-event.holiday.yomtov {
+    @apply bg-yellow-400 border-yellow-400 text-gray-800;
+  }
+
+  .fc-event.parashat {
+    @apply bg-green-800 border-green-800 text-white;
+  }
+
+  .fc-event.roshchodesh {
+    @apply bg-purple-700 border-purple-700 text-white;
+  }
+
+  .fc-event.hebrew .fc-title {
+    font-family: 'SBL Hebrew', David, serif;
+    font-size: 1.15em;
+    font-weight: normal;
+    direction: rtl;
+  }
+
+  .fc-event.hebrew .fc-time {
+    direction: ltr;
+    unicode-bidi: bidi-override;
+  }
+
+  .fc-event-time,
+  .fc-event-title {
+    @apply px-0.5 whitespace-normal;
+  }
+
+  .fc .fc-event.fc-event-today .fc-event-title {
+    background-color: rgba(99, 102, 241, 0.15); /* indigo tint */
+  }
+
+  a:hover .fc-event-title {
+    @apply underline;
+  }
+
+  a:not([href]):hover .fc-event-title {
+    text-decoration: none;
+  }
+
+  /* Responsive Enhancements */
+  @screen md {
+    .fc-event {
+      @apply text-base;
+    }
+
+    .fc-event-time,
+    .fc-event-title {
+      @apply px-1;
+    }
+  }
+
+  @screen lg {
+    .fc-event {
+      @apply text-lg;
+    }
+  }
+
+  .card {
+    @apply bg-white shadow-md p-6; /* Removed @apply rounded-lg */
+  }
+
+  .badge {
+    @apply text-sm bg-white px-3 py-1 rounded-full shadow text-gray-700;
+  }
+
+  .shadow-lg {
+    /* Replace @apply shadow-lg with equivalent CSS */
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .bg-gradient-to-r {
+    /* Replace @apply bg-gradient-to-r with equivalent CSS */
+    background-image: linear-gradient(to right, var(--tw-gradient-stops));
   }
 }

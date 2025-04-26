@@ -13,7 +13,7 @@ All made with React + Tailwind CSS, and powered by [Hebcal](https://www.hebcal.c
 
 ## 💭 Why I made this
 
-I wanted a single place where I could quickly check today’s Hebrew date, zmanim, and what parsha we’re up to — something minimal, good-looking, and easy to access. I wanted a nice siddur. 
+I wanted a single place where I could quickly check today’s Hebrew date, zmanim, and what parsha we’re up to — something minimal, good-looking, and easy to access. I wanted a nice siddur.
 
 ---
 
@@ -40,7 +40,7 @@ I'm still building! Some ideas in the pipeline:
 
 I just opened my first [Q&A discussion](https://github.com/orgs/TefillaHub/discussions) and would love to hear from you!
 
-> What would *you* want to see in a modern Jewish web app like this?
+> What would _you_ want to see in a modern Jewish web app like this?
 
 Let’s make something useful together!
 
@@ -51,12 +51,13 @@ Let’s make something useful together!
 - ⚛️ React
 - 🎨 Tailwind CSS
 - 📅 Hebcal API
-- more. 
+- more.
+
 ---
 
 ## 📬 Contact
 
-Feel free to open a discussion, or just say hi! Please spread the word wherever you know. 
+Feel free to open a discussion, or just say hi! Please spread the word wherever you know.
 
 ---
 
