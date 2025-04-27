@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="bg-gray-900 text-gray-100 font-sans">
+<html lang="en" class="bg-bg-all text-text-main font-sans">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,12 +9,12 @@
     <title>TefillaHub</title>
   </head>
 
-  <body class="bg-gray-900 text-gray-100">
-    <div class="bg-gray-800 pb-3">
+  <body class="bg-bg-all text-text-main">
+    <div class="bg-surface pb-3">
       <section class="p-4">
         <div class="flex justify-between items-center">
           <div>
-            <p id="gregorian-date" class="text-sm text-gray-400 mb-1">Loading Gregorian date...</p>
+            <p id="gregorian-date" class="text-sm text-gray-600 mb-1">Loading Gregorian date...</p>
             <p id="hebrew-date" class="font-semibold">
               <script src="https://www.hebcal.com/etc/hdate-en.js" crossorigin="anonymous"></script>
             </p>
@@ -22,14 +22,17 @@
         </div>
       </section>
 
-      <section class="bg-gradient-to-r from-blue-700 to-blue-600 text-white rounded-lg shadow-lg p-4 mx-4">
+      <section class="bg-gradient-to-r from-primary to-accent text-white rounded-lg shadow-lg p-4 mx-4">
         <div class="flex justify-between items-start">
           <div>
             <h1 class="text-lg font-semibold leading-tight">Happening This Week</h1>
             <p class="text-sm mt-1">Bellevue Hill</p>
           </div>
           <div class="text-right">
-            <p class="text-xs">Shabbat Times</p>
+            <p class="text-sm">
+              Shabbat -
+              <span id="next-shabbat-date" class="text-sm font-semibold"></span>
+            </p>
             <p id="shabbat-times" class="text-lg font-semibold leading-tight mt-1">
               <script>
                 (async () => {
@@ -40,22 +43,45 @@
                     }
                     const data = await response.json();
 
+                    // Extract next Shabbat date
+                    const nextShabbat = data.items.find((item) => item.category === 'parashat');
+                    if (nextShabbat) {
+                      const getOrdinalSuffix = (day) => {
+                        if (day > 3 && day < 21) return 'th';
+                        switch (day % 10) {
+                          case 1:
+                            return 'st';
+                          case 2:
+                            return 'nd';
+                          case 3:
+                            return 'rd';
+                          default:
+                            return 'th';
+                        }
+                      };
+
+                      const shabbatDateObj = new Date(nextShabbat.date);
+                      const day = shabbatDateObj.getDate();
+                      const month = shabbatDateObj.toLocaleDateString('en-US', { month: 'short' });
+                      const shabbatDate = `${month} ${day}${getOrdinalSuffix(day)}`;
+                      document.getElementById('next-shabbat-date').textContent = `${shabbatDate}`;
+                    } else {
+                      document.getElementById('next-shabbat-date').textContent = 'Date not found';
+                    }
+
                     // Extract candle lighting and havdalah times
                     const candleLighting = data.items.find((item) => item.category === 'candles');
                     const havdalah = data.items.find((item) => item.category === 'havdalah');
-
-                    // Display Shabbat times with emojis
                     if (candleLighting && havdalah) {
-                      const candleTime = candleLighting.title.split(': ')[1]; // Candle lighting time
-                      const havdalahTime = havdalah.title.split(': ')[1]; // Havdalah time
-
-                      // Format with emojis and separated by -
-                      document.getElementById('shabbat-times').textContent = `🕯️ ${candleTime} - ✨ ${havdalahTime}`;
+                      const candleTime = candleLighting.title.split(': ')[1];
+                      const havdalahTime = havdalah.title.split(': ')[1];
+                      document.getElementById('shabbat-times').innerHTML = `🕯️ ${candleTime}<br>✨ ${havdalahTime}`;
                     } else {
-                      document.getElementById('shabbat-times').textContent = 'Shabbat times not found';
+                      document.getElementById('shabbat-times').textContent = 'Times not found';
                     }
                   } catch (error) {
-                    console.error('Error fetching Shabbat times:', error);
+                    console.error('Error fetching Shabbat data:', error);
+                    document.getElementById('next-shabbat-date').textContent = 'Error loading date';
                     document.getElementById('shabbat-times').textContent = 'Error loading times';
                   }
                 })();
@@ -63,25 +89,19 @@
             </p>
           </div>
         </div>
-        <hr class="border-t border-white/30 mt-3" />
-      </section>
-
-      <section class="p-4 mx-4 mt-4">
-        <h2 class="text-lg font-semibold mb-2">Essentials</h2>
-        <div class="relative rounded-lg overflow-hidden shadow-lg shadow-lg">
-          <img src="./public/images/siddur.jpg" alt="Siddur" class="w-full h-48 object-cover" />
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <h3 class="text-white text-xl font-semibold">Siddur</h3>
-          </div>
-        </div>
-        <a
-          href="https://example.com/siddur"
-          target="_blank"
-          class="block text-center text-blue-200 underline text-sm mt-2"
-        >
-          Open Siddur
-        </a>
       </section>
     </div>
+
+    <section class="p-4 mx-4 mt-4">
+      <div>
+        <h2 class="text-lg font-semibold mb-2">Essentials</h2>
+        <a href="secondary/siddur.html" class="relative rounded-lg overflow-hidden shadow-lg block">
+          <img src="./public/images/siddur.jpg" alt="Siddur" class="w-full h-48 object-cover" />
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center">
+            <h3 class="text-white text-xl font-semibold">Siddur</h3>
+          </div>
+        </a>
+      </div>
+    </section>
   </body>
 </html>
