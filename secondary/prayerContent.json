@@ -1,0 +1,17 @@
+{
+  "adon-olam": "Content for Adon Olam.",
+  "akedah": "Content for Akedah.",
+  "asher-yatzar": "Content for Asher Yatzar.",
+  "elokai-neshama": "Content for Elokai Neshama.",
+  "ma-tovu": "Content for Ma Tovu.",
+  "modeh-ani": "<div class=\"flex flex-col items-center\"><p class=\"hebrew-text text-xl text-right\">מוֹדֶה אֲנִי לְפָנֶֽיךָ מֶֽלֶךְ חַי וְקַיָּם שֶׁהֶחֱזַֽרְתָּ בִּי נִשְׁמָתִי  רַבָּה אֱמוּנָתֶֽךָ</p><p class=\"english-text text-lg text-left mt-4 hidden\">I give thanks to You living and everlasting King for You have restored my soul with mercy. Great is Your faithfulness.</p></div>",
+  "morning-blessings": "Content for Morning Blessings.",
+  "netilat-yadayim": "<div class=\"flex flex-col items-center\"><p class=\"hebrew-text text-xl text-right\">בָּרוּךְ אַתָּה יְהֹוָה אֱלֹהֵֽינוּ מֶֽלֶךְ הָעוֹלָם אֲשֶׁר קִדְּ֒שָֽׁנוּ בְּמִצְוֹתָיו וְצִוָּנוּ עַל נְטִילַת יָדָֽיִם</p><p class=\"english-text text-lg text-left mt-4 hidden\">Blessed are You, Adonoy our God, King of the Universe, Who sanctified us with His commandments and commanded us concerning the washing of hands.</p></div>",
+  "sovereignty-of-heaven": "Content for Sovereignty of Heaven.",
+  "tallit": "Content for Tallit.",
+  "tefillin": "Content for Tefillin.",
+  "torah-blessings": "Content for Torah Blessings.",
+  "torah-study": "Content for Torah Study.",
+  "tzitzit": "Content for Tzitzit.",
+  "yigdal": "Content for Yigdal."
+}

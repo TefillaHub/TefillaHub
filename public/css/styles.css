@@ -1,10 +1,10 @@
 @layer base {
   body {
-    @apply font-noto bg-bg-page text-text-main;
+    @apply font-noto;
   }
 
   .dark body {
-    @apply font-noto bg-dark-bg-page text-dark-text-main;
+    @apply font-noto;
   }
   @layer utilities {
     .sec {

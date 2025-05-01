@@ -22,14 +22,14 @@ module.exports = {
         'primary-dark': '#2563eb', // Primary in dark mode (blue-600)
         'text-dark': '#f9fafb', // Light text for dark mode
       },
+      textColor: {
+        primary: '#0077b6', // Main brand color
+        'primary-dark': '#2563eb', // Primary in dark mode
+      },
       fontFamily: {
         noto: ['"Noto Sans"', 'sans-serif'],
-        sans: ['"Noto Sans"', ...defaultTheme.fontFamily.sans],
-        hebrew: [
-          '"Noto Sans Hebrew"',
-          '"Noto Sans"',
-          'sans-serif',
-        ],
+        sans: ['"Noto Sans"', 'sans-serif'],
+        hebrew: ['"Noto Serif Hebrew"', 'serif'],
       },
     },
   },

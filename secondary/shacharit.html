@@ -1,32 +1,290 @@
 <!doctype html>
-<html lang="en">
+<html lang="he">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Siddur Homepage</title>
+    <title>Shacharit</title>
     <link rel="stylesheet" href="../public/css/output.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew&display=swap" rel="stylesheet" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+      body {
+        font-family: 'Noto Sans', sans-serif;
+      }
+      .hebrew-text {
+        font-family: 'Noto Serif Hebrew', serif;
+      }
+    </style>
   </head>
-  <body class="bg-bg-all text-text-main font-sans">
+  <body class="bg-bg-all text-text-main">
+    <div class="text-center py-2">
+      <label for="toggleEnglish" class="text-lg font-semibold">Show English Translation</label>
+      <input type="checkbox" id="toggleEnglish" class="ml-2" />
+    </div>
     <div class="bg-surface pb-3">
-      <section class="p-4">
-        <div class="justify-between items-center">
-          <h1 class="text-lg font-semibold text-center">Shacharit</h1>
+      <section class="pt-2">
+        <div class="justify-between items-center text-center">
+          <h1 class="text-3xl font-semibold">Shacharit</h1>
+        </div>
+        <!-- Modified top navigation container -->
+        <div id="nav-buttons" class="overflow-x-auto whitespace-nowrap mt-4 px-4">
+          <button
+            class="inline-block px-4 py-2 m-1 bg-accent text-gray-700 rounded-lg hover:bg-accent-dark hover:text-white focus:outline-none ring-2 focus:ring-2 focus:ring-blue-300 focus:border-blue-500 focus:shadow-lg"
+          >
+            Preparatory Prayers
+          </button>
+          <button
+            class="inline-block px-4 py-2 m-1 bg-accent text-gray-700 rounded-lg hover:bg-accent-dark hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+          >
+            Pesukei Dezimra
+          </button>
+          <button
+            class="inline-block px-4 py-2 m-1 bg-accent text-gray-700 rounded-lg hover:bg-accent-dark hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+          >
+            Blessings of the Shema
+          </button>
+          <button
+            class="inline-block px-4 py-2 m-1 bg-accent text-gray-700 rounded-lg hover:bg-accent-dark hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+          >
+            Amidah
+          </button>
+          <button
+            class="inline-block px-4 py-2 m-1 bg-accent text-gray-700 rounded-lg hover:bg-accent-dark hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+          >
+            Post Amidah
+          </button>
+          <button
+            class="inline-block px-4 py-2 m-1 bg-accent text-gray-700 rounded-lg hover:bg-accent-dark hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+          >
+            Torah Reading
+          </button>
+          <button
+            class="inline-block px-4 py-2 m-1 bg-accent text-gray-700 rounded-lg hover:bg-accent-dark hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+          >
+            Concluding Prayers
+          </button>
+          <button
+            class="inline-block px-4 py-2 m-1 bg-accent text-gray-700 rounded-lg hover:bg-accent-dark hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+          >
+            Post Service
+          </button>
         </div>
       </section>
     </div>
+    <main>
+      <section class="text-center py-4">
+        <h2 class="text-2xl font-semibold mb-4">Preparatory Prayers</h2>
+        <!-- New horizontally scrollable buttons -->
+        <div class="flex overflow-x-auto whitespace-nowrap p-4">
+          <button
+            class="prayer-button flex-shrink-0 px-4 py-2 bg-surface text-text-main rounded-lg hover:bg-accent hover:text-white m-1"
+            data-content-id="modeh-ani"
+          >
+            Modeh Ani
+          </button>
+          <button
+            class="prayer-button flex-shrink-0 px-4 py-2 bg-surface text-text-main rounded-lg hover:bg-accent hover:text-white m-1"
+            data-content-id="netilat-yadayim"
+          >
+            Netilat Yadayim
+          </button>
+          <button
+            class="prayer-button flex-shrink-0 px-4 py-2 bg-surface text-text-main rounded-lg hover:bg-accent hover:text-white m-1"
+            data-content-id="asher-yatzar"
+          >
+            Asher Yatzar
+          </button>
+          <button
+            class="prayer-button flex-shrink-0 px-4 py-2 bg-surface text-text-main rounded-lg hover:bg-accent hover:text-white m-1"
+            data-content-id="elokai-neshama"
+          >
+            Elokai Neshama
+          </button>
+          <button
+            class="prayer-button flex-shrink-0 px-4 py-2 bg-surface text-text-main rounded-lg hover:bg-accent hover:text-white m-1"
+            data-content-id="tzitzit"
+          >
+            Tzitzit
+          </button>
+          <button
+            class="prayer-button flex-shrink-0 px-4 py-2 bg-surface text-text-main rounded-lg hover:bg-accent hover:text-white m-1"
+            data-content-id="torah-blessings"
+          >
+            Torah Blessings
+          </button>
+          <button
+            class="prayer-button flex-shrink-0 px-4 py-2 bg-surface text-text-main rounded-lg hover:bg-accent hover:text-white m-1"
+            data-content-id="tallit"
+          >
+            Tallit
+          </button>
+          <button
+            class="prayer-button flex-shrink-0 px-4 py-2 bg-surface text-text-main rounded-lg hover:bg-accent hover:text-white m-1"
+            data-content-id="tefillin"
+          >
+            Tefillin
+          </button>
+          <button
+            class="prayer-button flex-shrink-0 px-4 py-2 bg-surface text-text-main rounded-lg hover:bg-accent hover:text-white m-1"
+            data-content-id="ma-tovu"
+          >
+            Ma Tovu
+          </button>
+          <button
+            class="prayer-button flex-shrink-0 px-4 py-2 bg-surface text-text-main rounded-lg hover:bg-accent hover:text-white m-1"
+            data-content-id="adon-olam"
+          >
+            Adon Olam
+          </button>
+          <button
+            class="prayer-button flex-shrink-0 px-4 py-2 bg-surface text-text-main rounded-lg hover:bg-accent hover:text-white m-1"
+            data-content-id="yigdal"
+          >
+            Yigdal
+          </button>
+          <button
+            class="prayer-button flex-shrink-0 px-4 py-2 bg-surface text-text-main rounded-lg hover:bg-accent hover:text-white m-1"
+            data-content-id="morning-blessings"
+          >
+            Morning Blessings
+          </button>
+          <button
+            class="prayer-button flex-shrink-0 px-4 py-2 bg-surface text-text-main rounded-lg hover:bg-accent hover:text-white m-1"
+            data-content-id="akedah"
+          >
+            Akedah
+          </button>
+          <button
+            class="prayer-button flex-shrink-0 px-4 py-2 bg-surface text-text-main rounded-lg hover:bg-accent hover:text-white m-1"
+            data-content-id="sovereignty-of-heaven"
+          >
+            Sovereignty of Heaven
+          </button>
+        </div>
+        <!-- Prayer content display -->
+        <div id="prayer-content" class="mt-4 p-4">
+          <p>Please select a prayer to view its content.</p>
+        </div>
+      </section>
 
-    <!-- Modeh Ani displayed directly -->
-    <div id="prayers" class="p-4">
-      <div class="flex flex-col md:flex-row justify-between items-center bg-surface rounded-xl p-6 shadow-md">
-        <p class="font-[Noto Sans Hebrew] text-right w-full md:w-1/2 text-2xl mb-4 md:mb-0">
-          מודה אני לפניך מלך חי וקיים שהחזרת בי נשמתי בחמלה רבה אמונתך
-        </p>
-        <p class="text-left w-full md:w-1/2 text-lg text-gray-700">
-          I gratefully thank You, living and eternal King, for returning my soul within me with compassion — abundant is
-          Your faithfulness.
-        </p>
-      </div>
-    </div>
+      <!-- Pesukei Dezimra Section -->
+      <section id="preparatory-prayers" class="hidden text-center py-4">
+        <h2 class="text-2xl font-semibold mb-4">Pesukei Dezimra</h2>
+        <p>Content for Pesukei Dezimra will go here.</p>
+      </section>
+
+      <!-- Blessings of the Shema Section -->
+      <section id="pesukei-dezimra" class="hidden text-center py-4">
+        <h2 class="text-2xl font-semibold mb-4">Blessings of the Shema</h2>
+        <p>Content for Blessings of the Shema will go here.</p>
+      </section>
+
+      <!-- Amidah Section -->
+      <section id="blessings-of-the-shema" class="hidden text-center py-4">
+        <h2 class="text-2xl font-semibold mb-4">Amidah</h2>
+        <p>Content for Amidah will go here.</p>
+      </section>
+
+      <!-- Post Amidah Section -->
+      <section id="post-amidah" class="hidden text-center py-4">
+        <h2 class="text-2xl font-semibold mb-4">Post Amidah</h2>
+        <p>Content for Post Amidah will go here.</p>
+      </section>
+
+      <!-- Torah Reading Section -->
+      <section id="torah-reading" class="hidden text-center py-4">
+        <h2 class="text-2xl font-semibold mb-4">Torah Reading</h2>
+        <p>Content for Torah Reading will go here.</p>
+      </section>
+
+      <!-- Concluding Prayers Section -->
+      <section id="concluding-prayers" class="hidden text-center py-4">
+        <h2 class="text-2xl font-semibold mb-4">Concluding Prayers</h2>
+        <p>Content for Concluding Prayers will go here.</p>
+      </section>
+
+      <!-- Post Service Section -->
+      <section id="post-service" class="hidden text-center py-4">
+        <h2 class="text-2xl font-semibold mb-4">Post Service</h2>
+        <p>Content for Post Service will go here.</p>
+      </section>
+    </main>
+    <script>
+      document.getElementById('toggleEnglish').addEventListener('change', function () {
+        const englishTexts = document.querySelectorAll('.english-text');
+        englishTexts.forEach((text) => {
+          if (this.checked) {
+            text.classList.remove('hidden');
+          } else {
+            text.classList.add('hidden');
+          }
+        });
+      });
+
+      const prayerContent = {
+        'modeh-ani': `
+          <div class="flex flex-col items-center">
+            <p class="hebrew-text text-xl text-right">
+              מוֹדֶה אֲנִי לְפָנֶֽיךָ מֶֽלֶךְ חַי וְקַיָּם שֶׁהֶחֱזַֽרְתָּ בִּי נִשְׁמָתִי בְּחֶמְלָה, רַבָּה :אֱמוּנָתֶֽךָ
+            </p>
+            <p class="english-text text-lg text-left mt-4">
+              I give thanks to You living and everlasting King for You have restored my soul with mercy. Great is Your faithfulness.
+            </p>
+          </div>
+        `,
+        'netilat-yadayim': `
+          <div class="flex justify-between items-start">
+            <p class="english-text text-lg hidden text-left w-1/2">
+              Content for Netilat Yadayim in English.
+            </p>
+            <p class="hebrew-text text-xl text-right w-1/2">
+              תוכן לנטילת ידיים בעברית.
+            </p>
+          </div>
+        `,
+        'asher-yatzar': 'Content for Asher Yatzar.',
+        'elokai-neshama': 'Content for Elokai Neshama.',
+        tzitzit: 'Content for Tzitzit.',
+        'torah-blessings': 'Content for Torah Blessings.',
+        'torah-study': 'Content for Torah Study.',
+        tallit: 'Content for Tallit.',
+        tefillin: 'Content for Tefillin.',
+        'ma-tovu': 'Content for Ma Tovu.',
+        'adon-olam': 'Content for Adon Olam.',
+        yigdal: 'Content for Yigdal.',
+        'morning-blessings': 'Content for Morning Blessings.',
+        akedah: 'Content for Akedah.',
+        'sovereignty-of-heaven': 'Content for Sovereignty of Heaven.',
+      };
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const prayerButtons = document.querySelectorAll('.prayer-button');
+        const prayerContentDiv = document.getElementById('prayer-content');
+        prayerButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const contentId = button.dataset.contentId;
+            prayerContentDiv.innerHTML = prayerContent[contentId] || '<p>Content not available.</p>';
+          });
+        });
+      });
+
+      // Modified top nav event listener using the new id "nav-buttons"
+      const navButtons = document.querySelectorAll('#nav-buttons button');
+      const sections = document.querySelectorAll('main > section');
+      navButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+          sections.forEach((section, sectionIndex) => {
+            if (index === sectionIndex) {
+              section.classList.remove('hidden');
+            } else {
+              section.classList.add('hidden');
+            }
+          });
+          navButtons.forEach((btn) =>
+            btn.classList.remove('bg-accent-dark', 'text-white', 'border-blue-500', 'shadow-lg'),
+          );
+          button.classList.add('bg-accent-dark', 'text-white', 'border-blue-500', 'shadow-lg');
+        });
+      });
+    </script>
   </body>
 </html>
